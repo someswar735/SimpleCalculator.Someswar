@@ -9,14 +9,7 @@ let calculationHistory = [];
 function updateDisplay() {
     const display = document.getElementById('display');
     
-        if (display.updateHistory === displayValue) {
-            display.textContent = displayValue;
-        }
-        
-    if (currentOperation !== null && currentOperation !== '=' ) {
-        display.textContent = firstOperand + ' ' + currentOperation + ' ' + displayValue;
-       
-    }
+
     if (currentOperation !== null && currentOperation !== '=') {
         
         display.textContent = firstOperand + ' ' + currentOperation + ' ' + displayValue;
@@ -91,6 +84,7 @@ function calculate() {
     calculationHistory.push(`${firstOperand} ${currentOperation} ${secondOperand} = ${result}`);
 
     displayValue = result.toString();
+    displayHistory = result.toString();
     currentOperation = '=';
     updateDisplay();
     updateHistory();
@@ -119,8 +113,7 @@ function backspace() {
 updateDisplay();
 
 function updateHistory() {
-
-    document.getElementById('history').addEventListener('click', updateHistory);
-
+    const display = document.getElementById('display');
+    display.textContent = displayHistory;
 }
 
