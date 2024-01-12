@@ -2,12 +2,21 @@ let displayValue = '0';
 let currentOperation = null;
 let firstOperand = null;
 let currentOperator = null;
+let calculationHistory = [];
+
 
 
 function updateDisplay() {
     const display = document.getElementById('display');
     
-
+        if (display.updateHistory === displayValue) {
+            display.textContent = displayValue;
+        }
+        
+    if (currentOperation !== null && currentOperation !== '=' ) {
+        display.textContent = firstOperand + ' ' + currentOperation + ' ' + displayValue;
+       
+    }
     if (currentOperation !== null && currentOperation !== '=') {
         
         display.textContent = firstOperand + ' ' + currentOperation + ' ' + displayValue;
@@ -78,9 +87,13 @@ function calculate() {
             break;
     }
 
+    // Add the calculation to the history
+    calculationHistory.push(`${firstOperand} ${currentOperation} ${secondOperand} = ${result}`);
+
     displayValue = result.toString();
     currentOperation = '=';
     updateDisplay();
+    updateHistory();
 }
 
 function clearAll() {
@@ -104,3 +117,10 @@ function backspace() {
 }
 // Initialize the display
 updateDisplay();
+
+function updateHistory() {
+
+    document.getElementById('history').addEventListener('click', updateHistory);
+
+}
+
