@@ -84,10 +84,10 @@ function calculate() {
     calculationHistory.push(`${firstOperand} ${currentOperation} ${secondOperand} = ${result}`);
 
     displayValue = result.toString();
-    displayHistory = result.toString();
+    
     currentOperation = '=';
     updateDisplay();
-    updateHistory();
+    
 }
 
 function clearAll() {
@@ -113,7 +113,22 @@ function backspace() {
 updateDisplay();
 
 function updateHistory() {
-    const display = document.getElementById('display');
-    display.textContent = displayHistory;
-}
+    const historyCard = document.getElementById('history-card');
 
+    if (historyCard.classList.contains('hidden')) {
+        let historyString = '';
+
+        if (calculationHistory.length === 0) {
+            historyString = 'No history';
+        } else {
+            calculationHistory.forEach(calculation => {
+                historyString += '<span class="history-item">' + calculation + '</span><br>';
+            });
+        }
+
+        historyCard.innerHTML = historyString;
+        historyCard.classList.remove('hidden');
+    } else {
+        historyCard.classList.add('hidden');
+    }
+}
