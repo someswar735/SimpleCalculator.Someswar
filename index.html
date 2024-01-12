@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Calculator</title>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Simple Calculator</h1>
+    <div class="calculator">
+        <div class="calculator__output" id="display">0</div>
+        <div class="calculator__keys">
+          <button onclick="setOperation('+')" class="calculator__key calculator__key--operator">+</button>
+          <button onclick="setOperation('-')" class="calculator__key calculator__key--operator">-</button>
+          <button onclick="setOperation('*')" class="calculator__key calculator__key--operator">&times;</button>
+          <button onclick="setOperation('/')" class="calculator__key calculator__key--operator">÷</button>
+          <button onclick="appendNumber('7')" class="calculator__key">7</button>
+          <button onclick="appendNumber('8')" class="calculator__key">8</button>
+          <button onclick="appendNumber('9')" class="calculator__key">9</button>
+          <button onclick="backspace()" class="calculator__key calculator__key--backspace">⌫</button>
+          <button onclick="appendNumber('4')" class="calculator__key">4</button>
+          <button onclick="appendNumber('5')" class="calculator__key">5</button>
+          <button onclick="appendNumber('6')" class="calculator__key">6</button>
+          <button onclick="appendNumber('1')" class="calculator__key">1</button>
+          <button onclick="appendNumber('2')" class="calculator__key">2</button>
+          <button onclick="appendNumber('3')" class="calculator__key">3</button>
+          <button onclick="appendDecimal()" class="calculator__key">.</button>
+          <button onclick="appendNumber('0')" class="calculator__key">0</button>
+          <button onclick="clearDisplay()" class="calculator__key">AC</button>
+          <button onclick="calculate()" class="calculator__key calculator__key--enter">=</button>
+          
+        </div>
+      </div>
+    <script src="script.js"></script>
+</body>
+</html>
